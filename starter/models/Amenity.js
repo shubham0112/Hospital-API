@@ -1,16 +1,16 @@
 const mongoose=require('mongoose');
 
-const DepartmentSchema = new mongoose.Schema({
+const AmenitySchema = new mongoose.Schema({
     hosp_id:{
         type:Number,
         required:[true,'Please provide hosp_id'],
     },
-    dept:{
+    amenity:{
         type:String,
-        required:[true,'Please provide department'],
+        required:[true,'Please provide name'],
         minlength:3,
         maxlength:50,
     }
 })
 
-module.exports = mongoose.model('Department',DepartmentSchema);
+module.exports = mongoose.model('Amenity',AmenitySchema);

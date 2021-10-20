@@ -17,7 +17,11 @@ const authenticationUser = require('./middleware/authentication');
 
 //routers
 const authRouter=require('./routes/auth');
-const jobsRouter=require('./routes/jobs');
+const departmentsRouter=require('./routes/departments');
+const doctorsRouter=require('./routes/doctors');
+const amenitiesRouter=require('./routes/amenities');
+const galleryRouter=require('./routes/gallery');
+const reviewsRouter=require('./routes/reviews');
 
 // error handler
 const notFoundMiddleware = require('./middleware/not-found')
@@ -38,7 +42,12 @@ app.use(xss());
 
 // routes
 app.use('/api/v1/auth',authRouter);
-app.use('/api/v1/jobs',authenticationUser,jobsRouter); //all of the jobs routes are secured routes,so we are using "authenticationUser" middleware for all of them
+// app.use('/api/v1/jobs',authenticationUser,jobsRouter); //all of the jobs routes are secured routes,so we are using "authenticationUser" middleware for all of them
+app.use('/api/v1/departments',departmentsRouter);
+app.use('/api/v1/doctors',doctorsRouter);
+app.use('/api/v1/amenities',amenitiesRouter);
+app.use('/api/v1/gallery',galleryRouter);
+app.use('/api/v1/reviews',reviewsRouter);
 
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)

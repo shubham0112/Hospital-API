@@ -19,7 +19,7 @@ const auth = async (req,res,next)=>{
         const payload=jwt.verify(token,process.env.JWT_SECRET);
         // attach the user to the job routes (i.e all ok)
         req.user = {userId:payload.userId,name:payload.name};
-        next(); // jobsRouter (see app.js)
+        next(); // reviewsRouter (different routers as per request)
     } catch (error) {
         throw new UnauthenticatedError('Authentication invalid');
     }
